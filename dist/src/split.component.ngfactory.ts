@@ -15,16 +15,17 @@ import * as import6 from '@angular/core/src/metadata/view';
 import * as import7 from '@angular/core/src/linker/view_type';
 import * as import8 from '@angular/core/src/change_detection/constants';
 import * as import9 from '@angular/core/src/linker/component_factory';
-import * as import10 from '@angular/core/src/linker/element_ref';
-import * as import11 from './splitGutter.directive.ngfactory';
-import * as import12 from '@angular/core/src/linker/view_container';
-import * as import13 from '../../src/splitGutter.directive';
-import * as import14 from '../node_modules/@angular/common/src/directives/ng_if.ngfactory';
-import * as import15 from '@angular/core/src/linker/template_ref';
-import * as import16 from '@angular/common/src/directives/ng_if';
-import * as import17 from '../node_modules/@angular/common/src/directives/ng_for.ngfactory';
-import * as import18 from '@angular/core/src/change_detection/differs/iterable_differs';
-import * as import19 from '@angular/common/src/directives/ng_for';
+import * as import10 from '../../src/splitStateService';
+import * as import11 from '@angular/core/src/linker/element_ref';
+import * as import12 from './splitGutter.directive.ngfactory';
+import * as import13 from '@angular/core/src/linker/view_container';
+import * as import14 from '../../src/splitGutter.directive';
+import * as import15 from '../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import16 from '@angular/core/src/linker/template_ref';
+import * as import17 from '@angular/common/src/directives/ng_if';
+import * as import18 from '../node_modules/@angular/common/src/directives/ng_for.ngfactory';
+import * as import19 from '@angular/core/src/change_detection/differs/iterable_differs';
+import * as import20 from '@angular/common/src/directives/ng_for';
 export class Wrapper_SplitComponent {
   /*private*/ _eventHandler:Function;
   context:import0.SplitComponent;
@@ -40,14 +41,16 @@ export class Wrapper_SplitComponent {
   /*private*/ _expr_7:any;
   /*private*/ _expr_8:any;
   /*private*/ _expr_9:any;
+  /*private*/ _expr_10:any;
+  /*private*/ _expr_11:any;
   subscription0:any;
   subscription1:any;
   subscription2:any;
   subscription3:any;
-  constructor(p0:any,p1:any,p2:any) {
+  constructor(p0:any,p1:any,p2:any,p3:any) {
     this._changed = false;
     this._changes = {};
-    this.context = new import0.SplitComponent(p0,p1,p2);
+    this.context = new import0.SplitComponent(p0,p1,p2,p3);
     this._expr_0 = import1.UNINITIALIZED;
     this._expr_1 = import1.UNINITIALIZED;
     this._expr_2 = import1.UNINITIALIZED;
@@ -58,6 +61,8 @@ export class Wrapper_SplitComponent {
     this._expr_7 = import1.UNINITIALIZED;
     this._expr_8 = import1.UNINITIALIZED;
     this._expr_9 = import1.UNINITIALIZED;
+    this._expr_10 = import1.UNINITIALIZED;
+    this._expr_11 = import1.UNINITIALIZED;
   }
   ngOnDetach(view:import2.AppView<any>,componentView:import2.AppView<any>,el:any):void {
   }
@@ -116,6 +121,22 @@ export class Wrapper_SplitComponent {
       this._expr_5 = currValue;
     }
   }
+  check_saveStates(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+    if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_6,currValue))) {
+      this._changed = true;
+      this.context.saveStates = currValue;
+      this._changes['saveStates'] = new import1.SimpleChange(this._expr_6,currValue);
+      this._expr_6 = currValue;
+    }
+  }
+  check_name(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+    if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_7,currValue))) {
+      this._changed = true;
+      this.context.name = currValue;
+      this._changes['name'] = new import1.SimpleChange(this._expr_7,currValue);
+      this._expr_7 = currValue;
+    }
+  }
   ngDoCheck(view:import2.AppView<any>,el:any,throwOnChange:boolean):boolean {
     var changed:any = this._changed;
     this._changed = false;
@@ -126,25 +147,25 @@ export class Wrapper_SplitComponent {
     return changed;
   }
   checkHost(view:import2.AppView<any>,componentView:import2.AppView<any>,el:any,throwOnChange:boolean):void {
-    const currVal_6:any = this.context.styleFlexDirection;
-    if (import3.checkBinding(throwOnChange,this._expr_6,currVal_6)) {
-      view.renderer.setElementClass(el,'vertical',currVal_6);
-      this._expr_6 = currVal_6;
-    }
-    const currVal_7:any = this.context.dragging;
-    if (import3.checkBinding(throwOnChange,this._expr_7,currVal_7)) {
-      view.renderer.setElementClass(el,'notrans',currVal_7);
-      this._expr_7 = currVal_7;
-    }
-    const currVal_8:any = this.context.styleWidth;
+    const currVal_8:any = this.context.styleFlexDirection;
     if (import3.checkBinding(throwOnChange,this._expr_8,currVal_8)) {
-      view.renderer.setElementStyle(el,'width',((view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_8) == null)? (null as any): view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_8).toString()));
+      view.renderer.setElementClass(el,'vertical',currVal_8);
       this._expr_8 = currVal_8;
     }
-    const currVal_9:any = this.context.styleHeight;
+    const currVal_9:any = this.context.dragging;
     if (import3.checkBinding(throwOnChange,this._expr_9,currVal_9)) {
-      view.renderer.setElementStyle(el,'height',((view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_9) == null)? (null as any): view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_9).toString()));
+      view.renderer.setElementClass(el,'notrans',currVal_9);
       this._expr_9 = currVal_9;
+    }
+    const currVal_10:any = this.context.styleWidth;
+    if (import3.checkBinding(throwOnChange,this._expr_10,currVal_10)) {
+      view.renderer.setElementStyle(el,'width',((view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_10) == null)? (null as any): view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_10).toString()));
+      this._expr_10 = currVal_10;
+    }
+    const currVal_11:any = this.context.styleHeight;
+    if (import3.checkBinding(throwOnChange,this._expr_11,currVal_11)) {
+      view.renderer.setElementStyle(el,'height',((view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_11) == null)? (null as any): view.viewUtils.sanitizer.sanitize(import4.SecurityContext.STYLE,currVal_11).toString()));
+      this._expr_11 = currVal_11;
     }
   }
   handleEvent(eventName:string,$event:any):boolean {
@@ -170,7 +191,7 @@ class View_SplitComponent_Host0 extends import2.AppView<any> {
   createInternal(rootSelector:string):import9.ComponentRef<any> {
     this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer,'split',import3.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
     this.compView_0 = new View_SplitComponent0(this.viewUtils,this,0,this._el_0);
-    this._SplitComponent_0_3 = new Wrapper_SplitComponent(this.compView_0.ref,new import10.ElementRef(this._el_0),this.renderer);
+    this._SplitComponent_0_3 = new Wrapper_SplitComponent(this.injectorGet(import10.SplitStateService,this.parentIndex),this.compView_0.ref,new import11.ElementRef(this._el_0),this.renderer);
     this.compView_0.create(this._SplitComponent_0_3.context);
     this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [this._el_0]),(null as any));
     return new import9.ComponentRef_<any>(0,this,this._el_0,this._SplitComponent_0_3.context);
@@ -183,6 +204,7 @@ class View_SplitComponent_Host0 extends import2.AppView<any> {
     if (this._SplitComponent_0_3.ngDoCheck(this,this._el_0,throwOnChange)) { this.compView_0.markAsCheckOnce(); }
     this._SplitComponent_0_3.checkHost(this,this.compView_0,this._el_0,throwOnChange);
     this.compView_0.internalDetectChanges(throwOnChange);
+    if (!throwOnChange) { if ((this.numberOfChecks === 0)) { this._SplitComponent_0_3.context.ngAfterViewInit(); } }
   }
   destroyInternal():void {
     this.compView_0.destroy();
@@ -199,19 +221,19 @@ export const SplitComponentNgFactory:import9.ComponentFactory<import0.SplitCompo
 const styles_SplitComponent:any[] = ['[_nghost-%COMP%] {\n            display: flex;\n            flex-wrap: nowrap;\n            justify-content: flex-start;\n            flex-direction: row;\n        }\n\n        .vertical[_nghost-%COMP%] {\n            flex-direction: column;\n        }\n\n        split-gutter[_ngcontent-%COMP%] {\n            flex-grow: 0;\n            flex-shrink: 0;\n            flex-basis: 10px;\n            height: 100%;\n            background-color: #eeeeee;\n            background-position: 50%;\n            background-repeat: no-repeat;\n        }\n\n        .vertical[_nghost-%COMP%]   split-gutter[_ngcontent-%COMP%] {\n            width: 100%;\n        }\n\n        [_nghost-%COMP%]     split-area {\n            transition: flex-basis 0.3s;\n        }  \n\n        .notrans[_nghost-%COMP%]     split-area {\n            transition: none !important;\n        }      \n\n        [_nghost-%COMP%]     split-area.notshow {\n            flex-basis: 0 !important;\n            overflow: hidden !important;\n        }      \n\n        .vertical[_nghost-%COMP%]     split-area.notshow {\n            max-width: 0;\n            flex-basis: 0 !important;\n            overflow: hidden !important;\n        }'];
 class View_SplitComponent2 extends import2.AppView<any> {
   _el_0:any;
-  _SplitGutterDirective_0_3:import11.Wrapper_SplitGutterDirective;
-  constructor(viewUtils:import3.ViewUtils,parentView:import2.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import12.ViewContainer) {
+  _SplitGutterDirective_0_3:import12.Wrapper_SplitGutterDirective;
+  constructor(viewUtils:import3.ViewUtils,parentView:import2.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import13.ViewContainer) {
     super(View_SplitComponent2,renderType_SplitComponent,import7.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import8.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
   }
   createInternal(rootSelector:string):import9.ComponentRef<any> {
     this._el_0 = import3.createRenderElement(this.renderer,(null as any),'split-gutter',import3.EMPTY_INLINE_ARRAY,(null as any));
-    this._SplitGutterDirective_0_3 = new import11.Wrapper_SplitGutterDirective(new import10.ElementRef(this._el_0),this.renderer);
+    this._SplitGutterDirective_0_3 = new import12.Wrapper_SplitGutterDirective(new import11.ElementRef(this._el_0),this.renderer);
     var disposable_0:Function = import3.subscribeToRenderElement(this,this._el_0,new import3.InlineArray4(4,'mousedown',(null as any),'touchstart',(null as any)),this.eventHandler(this.handleEvent_0));
     this.init(this._el_0,((<any>this.renderer).directRenderer? (null as any): [this._el_0]),[disposable_0]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import13.SplitGutterDirective) && (0 === requestNodeIndex))) { return this._SplitGutterDirective_0_3.context; }
+    if (((token === import14.SplitGutterDirective) && (0 === requestNodeIndex))) { return this._SplitGutterDirective_0_3.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
@@ -245,19 +267,19 @@ class View_SplitComponent2 extends import2.AppView<any> {
 class View_SplitComponent1 extends import2.AppView<any> {
   _text_0:any;
   _anchor_1:any;
-  /*private*/ _vc_1:import12.ViewContainer;
+  /*private*/ _vc_1:import13.ViewContainer;
   _TemplateRef_1_5:any;
-  _NgIf_1_6:import14.Wrapper_NgIf;
+  _NgIf_1_6:import15.Wrapper_NgIf;
   _text_2:any;
-  constructor(viewUtils:import3.ViewUtils,parentView:import2.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import12.ViewContainer) {
+  constructor(viewUtils:import3.ViewUtils,parentView:import2.AppView<any>,parentIndex:number,parentElement:any,declaredViewContainer:import13.ViewContainer) {
     super(View_SplitComponent1,renderType_SplitComponent,import7.ViewType.EMBEDDED,viewUtils,parentView,parentIndex,parentElement,import8.ChangeDetectorStatus.CheckAlways,declaredViewContainer);
   }
   createInternal(rootSelector:string):import9.ComponentRef<any> {
     this._text_0 = this.renderer.createText((null as any),'\n            ',(null as any));
     this._anchor_1 = this.renderer.createTemplateAnchor((null as any),(null as any));
-    this._vc_1 = new import12.ViewContainer(1,(null as any),this,this._anchor_1);
-    this._TemplateRef_1_5 = new import15.TemplateRef_(this,1,this._anchor_1);
-    this._NgIf_1_6 = new import14.Wrapper_NgIf(this._vc_1.vcRef,this._TemplateRef_1_5);
+    this._vc_1 = new import13.ViewContainer(1,(null as any),this,this._anchor_1);
+    this._TemplateRef_1_5 = new import16.TemplateRef_(this,1,this._anchor_1);
+    this._NgIf_1_6 = new import15.Wrapper_NgIf(this._vc_1.vcRef,this._TemplateRef_1_5);
     this._text_2 = this.renderer.createText((null as any),'\n        ',(null as any));
     this.init(this._text_2,((<any>this.renderer).directRenderer? (null as any): [
       this._text_0,
@@ -268,8 +290,8 @@ class View_SplitComponent1 extends import2.AppView<any> {
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import15.TemplateRef) && (1 === requestNodeIndex))) { return this._TemplateRef_1_5; }
-    if (((token === import16.NgIf) && (1 === requestNodeIndex))) { return this._NgIf_1_6.context; }
+    if (((token === import16.TemplateRef) && (1 === requestNodeIndex))) { return this._TemplateRef_1_5; }
+    if (((token === import17.NgIf) && (1 === requestNodeIndex))) { return this._NgIf_1_6.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
@@ -297,9 +319,9 @@ export class View_SplitComponent0 extends import2.AppView<import0.SplitComponent
   _text_0:any;
   _text_1:any;
   _anchor_2:any;
-  /*private*/ _vc_2:import12.ViewContainer;
+  /*private*/ _vc_2:import13.ViewContainer;
   _TemplateRef_2_5:any;
-  _NgFor_2_6:import17.Wrapper_NgFor;
+  _NgFor_2_6:import18.Wrapper_NgFor;
   constructor(viewUtils:import3.ViewUtils,parentView:import2.AppView<any>,parentIndex:number,parentElement:any) {
     super(View_SplitComponent0,renderType_SplitComponent,import7.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import8.ChangeDetectorStatus.CheckOnce);
   }
@@ -309,9 +331,9 @@ export class View_SplitComponent0 extends import2.AppView<import0.SplitComponent
     this.projectNodes(parentRenderNode,0);
     this._text_1 = this.renderer.createText(parentRenderNode,'\n        ',(null as any));
     this._anchor_2 = this.renderer.createTemplateAnchor(parentRenderNode,(null as any));
-    this._vc_2 = new import12.ViewContainer(2,(null as any),this,this._anchor_2);
-    this._TemplateRef_2_5 = new import15.TemplateRef_(this,2,this._anchor_2);
-    this._NgFor_2_6 = new import17.Wrapper_NgFor(this._vc_2.vcRef,this._TemplateRef_2_5,this.parentView.injectorGet(import18.IterableDiffers,this.parentIndex),this.ref);
+    this._vc_2 = new import13.ViewContainer(2,(null as any),this,this._anchor_2);
+    this._TemplateRef_2_5 = new import16.TemplateRef_(this,2,this._anchor_2);
+    this._NgFor_2_6 = new import18.Wrapper_NgFor(this._vc_2.vcRef,this._TemplateRef_2_5,this.parentView.injectorGet(import19.IterableDiffers,this.parentIndex),this.ref);
     this.init((null as any),((<any>this.renderer).directRenderer? (null as any): [
       this._text_0,
       this._text_1,
@@ -321,8 +343,8 @@ export class View_SplitComponent0 extends import2.AppView<import0.SplitComponent
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import15.TemplateRef) && (2 === requestNodeIndex))) { return this._TemplateRef_2_5; }
-    if (((token === import19.NgFor) && (2 === requestNodeIndex))) { return this._NgFor_2_6.context; }
+    if (((token === import16.TemplateRef) && (2 === requestNodeIndex))) { return this._TemplateRef_2_5; }
+    if (((token === import20.NgFor) && (2 === requestNodeIndex))) { return this._NgFor_2_6.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {

@@ -36,4 +36,4 @@ SplitStateService = __decorate([
     __metadata("design:paramtypes", [cookieService_1.CookieService])
 ], SplitStateService);
 exports.SplitStateService = SplitStateService;
-//# sourceMappingURL=C:/dev/angular-split-igx/splitStateService.js.map
+//# sourceMappingURL=D:/dev/split-igx/splitStateService.js.map

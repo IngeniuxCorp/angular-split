@@ -131,4 +131,4 @@ SplitAreaDirective = __decorate([
         split_component_1.SplitComponent])
 ], SplitAreaDirective);
 exports.SplitAreaDirective = SplitAreaDirective;
-//# sourceMappingURL=C:/dev/angular-split-igx/splitArea.directive.js.map
+//# sourceMappingURL=D:/dev/split-igx/splitArea.directive.js.map

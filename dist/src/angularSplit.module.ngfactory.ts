@@ -9,18 +9,30 @@ import * as import0 from '@angular/core/src/linker/ng_module_factory';
 import * as import1 from '../../src/angularSplit.module';
 import * as import2 from '@angular/common/src/common_module';
 import * as import3 from '@angular/common/src/localization';
-import * as import4 from '@angular/core/src/di/injector';
-import * as import5 from '@angular/core/src/i18n/tokens';
+import * as import4 from '../../src/cookieService';
+import * as import5 from '../../src/splitStateService';
+import * as import6 from '@angular/core/src/di/injector';
+import * as import7 from '@angular/core/src/i18n/tokens';
 class AngularSplitModuleInjector extends import0.NgModuleInjector<import1.AngularSplitModule> {
   _CommonModule_0:import2.CommonModule;
   _AngularSplitModule_1:import1.AngularSplitModule;
   __NgLocalization_2:import3.NgLocaleLocalization;
-  constructor(parent:import4.Injector) {
+  __CookieService_3:import4.CookieService;
+  __SplitStateService_4:import5.SplitStateService;
+  constructor(parent:import6.Injector) {
     super(parent,([] as any[]),([] as any[]));
   }
   get _NgLocalization_2():import3.NgLocaleLocalization {
-    if ((this.__NgLocalization_2 == null)) { (this.__NgLocalization_2 = new import3.NgLocaleLocalization(this.parent.get(import5.LOCALE_ID))); }
+    if ((this.__NgLocalization_2 == null)) { (this.__NgLocalization_2 = new import3.NgLocaleLocalization(this.parent.get(import7.LOCALE_ID))); }
     return this.__NgLocalization_2;
+  }
+  get _CookieService_3():import4.CookieService {
+    if ((this.__CookieService_3 == null)) { (this.__CookieService_3 = new import4.CookieService()); }
+    return this.__CookieService_3;
+  }
+  get _SplitStateService_4():import5.SplitStateService {
+    if ((this.__SplitStateService_4 == null)) { (this.__SplitStateService_4 = new import5.SplitStateService(this._CookieService_3)); }
+    return this.__SplitStateService_4;
   }
   createInternal():import1.AngularSplitModule {
     this._CommonModule_0 = new import2.CommonModule();
@@ -31,6 +43,8 @@ class AngularSplitModuleInjector extends import0.NgModuleInjector<import1.Angula
     if ((token === import2.CommonModule)) { return this._CommonModule_0; }
     if ((token === import1.AngularSplitModule)) { return this._AngularSplitModule_1; }
     if ((token === import3.NgLocalization)) { return this._NgLocalization_2; }
+    if ((token === import4.CookieService)) { return this._CookieService_3; }
+    if ((token === import5.SplitStateService)) { return this._SplitStateService_4; }
     return notFoundResult;
   }
   destroyInternal():void {

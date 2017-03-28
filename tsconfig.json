@@ -30,6 +30,7 @@
     ],
     "angularCompilerOptions": {
         "genDir": "dist",
-        "entryModule": "src/angularSplit.module#AngularSplitModule"
+        "entryModule": "src/angularSplit.module#AngularSplitModule",
+        "enableLegacyTemplate": true
     }
 }
